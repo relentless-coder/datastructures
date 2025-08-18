@@ -1,31 +1,29 @@
+---
 name: CMake CI
-
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
-
+    branches: [main]
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-
-    - name: Set up dependencies
-      run: sudo apt-get update && sudo apt-get install -y cmake build-essential
-
-    - name: Create build directory
-      run: mkdir build
-
-    - name: Configure CMake
-      run: cmake -S . -B build
-
-    - name: Build project
-      run: cmake --build build
-
-    - name: Run tests
-      run: cd build && ctest --output-on-failure
-
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Set up dependencies
+        run: sudo apt-get update && sudo apt-get install -y cmake build-essential
+      - name: Create munit library folder
+        run: mkdir -p .lib/munit
+      - name: Download munit.c
+        run: wget -O .lib/munit/munit.c https://raw.githubusercontent.com/nemequ/munit/master/munit.c
+      - name: Download munit.h
+        run: wget -O .lib/munit/munit.h https://raw.githubusercontent.com/nemequ/munit/master/munit.h
+      - name: Create build directory
+        run: mkdir build
+      - name: Configure CMake
+        run: cmake -S . -B build
+      - name: Build project
+        run: cmake --build build
+      - name: Run tests
+        run: cd build && ctest --output-on-failure
