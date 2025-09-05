@@ -17,6 +17,15 @@ trees/binary_tree/binary_tree.c
 node/node.c
 .lib/munit/munit.c)
 
+
+add_executable(tree_test.out
+trees/tree/tree_test.c
+trees/tree/tree.c
+trees/tree_node/tree_node.c
+node/node.c
+.lib/munit/munit.c)
+
 enable_testing()
 add_test(NAME NodeTest COMMAND node_test.out)
 add_test(NAME BinaryTreeTest COMMAND binary_tree_test.out)
+add_test(NAME TreeTest COMMAND tree_test.out)

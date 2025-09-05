@@ -46,7 +46,6 @@ compare_and_return_smaller_binary_tree_node(binary_tree_node_t *a,
   return b;
 }
 
-// Yes I'm building a binary search tree
 void find_parent_and_add_node_to_it(binary_tree_node_t *root_node,
                                     binary_tree_node_t *node_to_add) {
   if (root_node == NULL || node_to_add == NULL) {
