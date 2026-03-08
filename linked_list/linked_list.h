@@ -1,5 +1,3 @@
-#include <stddef.h>
-
 typedef struct ListNode list_node_t;
 typedef struct Node node_t;
 

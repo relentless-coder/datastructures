@@ -7,6 +7,7 @@ include_directories(${PROJECT_SOURCE_DIR}/node)
 include_directories(${PROJECT_SOURCE_DIR}/linked-list)
 include_directories(${PROJECT_SOURCE_DIR}/trees)
 include_directories(${PROJECT_SOURCE_DIR}/trees/binary_tree)
+include_directories(${PROJECT_SOURCE_DIR}/hashmap)
 
 # Create executable for node unit tests
 add_executable(node_test.out node/node_test.c node/node.c .lib/munit/munit.c)
@@ -25,7 +26,13 @@ trees/tree_node/tree_node.c
 node/node.c
 .lib/munit/munit.c)
 
+add_executable(hashmap_test.out
+hashmap/hashmap_test.c
+hashmap/hashmap.c
+.lib/munit/munit.c)
+
 enable_testing()
 add_test(NAME NodeTest COMMAND node_test.out)
 add_test(NAME BinaryTreeTest COMMAND binary_tree_test.out)
 add_test(NAME TreeTest COMMAND tree_test.out)
+add_test(NAME HashMapTest COMMAND hashmap_test.out)
